@@ -11,17 +11,17 @@ window.addEventListener("load", function () {
    document.querySelector("#begin-calendar").onclick = function () {
       ControlDate    = new Date()
       document.querySelector("#begin-calendar").innerHTML  = getWeekDays(0, ControlDate.getMonth())[2] + ' ' + ControlDate.getFullYear()
-      return setCalendar(new Date(ControlDate))
+      return setCalendar(ControlDate)
    }
    document.querySelector("#next-calendar").onclick = () => {
       ControlDate    = new Date(ControlDate.setMonth(ControlDate.getMonth() + 1))
       document.querySelector("#begin-calendar").innerHTML  = getWeekDays(0, ControlDate.getMonth())[2] + ' ' + ControlDate.getFullYear()
-      return setCalendar(new Date(ControlDate))
+      return setCalendar(ControlDate)
    }
    document.querySelector("#previous-calendar").onclick = () => {
       ControlDate    = new Date(ControlDate.setMonth(ControlDate.getMonth() - 1))
       document.querySelector("#begin-calendar").innerHTML  = getWeekDays(0, ControlDate.getMonth())[2] + ' ' + ControlDate.getFullYear()
-      return setCalendar(new Date(ControlDate))
+      return setCalendar(ControlDate)
    }
    
    document.querySelector("#date-data-list-bg").onclick = function () {
@@ -62,15 +62,18 @@ function getWeekDays(day = 0, m = 0) {
    onMonth     = theDate.getMonth()
    onYear      = theDate.getFullYear()
    
-   let month         = new Date().getMonth()
-   let year          = new Date().getFullYear()
+   let month         = new Date(date).getMonth()
+   let year          = new Date(date).getFullYear()
    let setSch        = "schedule" + month + '' + year
    let ScheduleNow   = JSON.parse(localStorage.getItem(setSch))
    
+   let scx  = true
+   
    if (!ScheduleNow) {
-      document.querySelector("#SETTING").classList.add("on")
-      document.querySelector("#settings").classList.remove("off")
-      return alert("Input Your Schedule.")
+      // document.querySelector("#SETTING").classList.add("on")
+      // document.querySelector("#settings").classList.remove("off")
+      alert("Couldn't Found Your Schedule.")
+      scx = false
    }
    // console.log(ScheduleNow)
    
@@ -116,12 +119,20 @@ function getWeekDays(day = 0, m = 0) {
          if (new Date().getDate() == i && new Date().getMonth() == onMonth && new Date().getFullYear() == onYear) {
             today = "today"
          }
-         let schx = ScheduleNow[i - 1]
-         let schk = schx
-         let scc  = "schedule" + onMonth + '' + onYear
-         if (!localStorage.getItem(scc)) schx = ''
-         let schn = schx
-         if (schx == '') schn = "Data List"
+         
+         let schx, schk, scc, schn;
+         if (scx == true ) {
+            schx = ScheduleNow[i - 1]
+            schk = schx
+            scc  = "schedule" + onMonth + '' + onYear
+            if (!localStorage.getItem(scc)) schx = ''
+            schn = schx
+            if (schx == '') schn = "Data List"
+         } else {
+            schn = ' '
+            schx = 'xx'
+            schk = ''
+         }
          
          if (today == 'today') {
             asData.shipping   = onShipping
@@ -134,7 +145,7 @@ function getWeekDays(day = 0, m = 0) {
                fu : fuData
             }
             // console.log(allData)
-            console.log(typeof onPrepare, typeof onShipping)
+            // console.log(typeof onPrepare, typeof onShipping)
             localStorage.setItem("TODAY", JSON.stringify(todayTask))
          }
          
