@@ -61,7 +61,7 @@ function updateSchedule () {
       const value  = document.querySelector(`${id}`).value
       // console.log(value)
       SchArray.push(value)
-   }
+   } 
    localStorage.setItem(setSch, JSON.stringify(SchArray))
    return window.location.reload()
 }
