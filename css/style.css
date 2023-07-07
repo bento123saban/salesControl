@@ -1,17 +1,17 @@
                                                                                                                                                                                                                                                                                                                                                                                                                
 
-@font-face {
+/*@font-face {
    font-family: barlow;
    src: url(/font/BarlowCondensed-Light.ttf);
-}
+}*/
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&family=Lato:wght@300&display=swap');
 
 
 * {
    box-sizing: border-box;
    font-family: 'Lato', sans-serif;
-   font-family: 'Barlow Condensed', sans-serif;
-   font-family: barlow;
+   font-family: 'Barlow Condens8ed', sans-serif;
+   /*font-family: barlow;*/
 }
 
 body {
