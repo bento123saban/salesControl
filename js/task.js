@@ -47,7 +47,7 @@ window.addEventListener('DOMContentLoaded', function () {
             taskProgress   = JSON.parse(localStorage.getItem('taskProgress'))
          // return console.log(taskProgress)
          if (taskProgress.status == 'edit' && confirm('Update ?')) IDX = taskProgress.ID
-         else if (taskProconfi.status == 'add' && confirm('Save ?')) IDX = new Date().getTime()
+         else if (taskProgress.status == 'add' && confirm('Save ?')) IDX = new Date().getTime()
          else return
          const taskStatus  = TASK.create(datax, IDX, taskHeaderNote.value)
          if (!taskStatus) return alert('Update Failed !')
