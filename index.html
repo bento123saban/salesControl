@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <script src="https://kit.fontawesome.com/8ff03879d1.js" crossorigin="anonymous"></script>
+  <!-- <script src="https://kit.fontawesome.com/8ff03879d1.js" crossorigin="anonymous"></script> -->
   <script src="js/config.js"></script>
   <script src="js/classes.js"></script> 
   <title>HTML</title>
@@ -50,7 +50,7 @@
          <div class="calendar-box"></div>
       </div>
       
-      <div class="navx" data-nav="task-list" id="task-dashboard">
+      <div class="navx box" data-nav="task-list" id="task-dashboard">
          <span>7 Task to complete</span>
          <i class="fas fa-list-check"></i>
       </div>
@@ -86,6 +86,7 @@
          <hr>
          <div class="as-chart-box"></div>
       </div>
+      <br>
    </section>
    
    <section class="main-content dis-none" id="add-fu">
@@ -157,7 +158,6 @@
    
    <section class="main-content dis-none" id="add-as">
       <h4 class="allH4">ADD AS</h4>
-      <hr>
       <div class="reciept-num">
          <input type="text"   class="rcp-input"  id="store-code"     style="width: 40px;"   value="UG8">.
          <input type="number" class="rcp-input"  id="cashier-num"    style="width: 30px;"   placeholder="0">.
@@ -165,7 +165,6 @@
          <input type="number" class="rcp-input"  id="reciept-order"  style="width: 30px;"   placeholder="00">
       </div>
       <input type="datetime-local" class="optional" id="reciept-date-control">
-      <hr>
       <div class="as-add-form">
          <div class="add-grup">
             <label for="cust-name" class="grup-name">Customer Name</label>
@@ -254,7 +253,6 @@
             <button class="bttn bttn-yellow" id="as-reset">Reset</button>
             <button class="bttn bttn-red dis-none" id="as-remove">Remove</button>
          </div>
-         <hr>
          <br>
       </div>
    </section>
@@ -346,7 +344,6 @@
          <label class="grup-name" for="">Search <i class="fas fa-search"></i></label>
          <input type="text" id="task-search-input" class="input-form" placeholder="...">
       </div>
-      <hr>
       <div class="task-buttons" id="task-tab-button">
          <button class="bttn bttn-blue" data-type="FU">followUp</button>
          <button class="bttn bttn-green" data-type="AS">afterSales</button>
@@ -355,6 +352,7 @@
       </div>
       <hr>
       <div class="task-all-list" id="all-task"></div>
+      <br>
    </section>
    
    <section class="main-content dis-none" id="add-task">
@@ -373,6 +371,7 @@
          <button class="bttn bttn-yellow" id="task-reset">Reset</button>
          <button class="bttn bttn-red dis-none" id="task-remove">Remove</button>
       </div>
+      <br>
    </section>
    
    <section class="main-content dis-none" id="contact-list">
@@ -436,8 +435,6 @@
       </div>
    </section>
    
-   
-   
    <div id="nav-add">
       <div class="nav-add-button navx" data-nav="add-fu"><i class="fas fa-rocket"></i> &nbsp followUp</div>
       <div class="nav-add-button navx" data-nav="add-as"><i class="fas fa-handshake-alt"></i> &nbsp afterSales</div>
@@ -480,7 +477,6 @@
    </nav>
    
    <script>
-      
       const FU       = new fuControl()
       const AS       = new asControl()
       const TASK     = new taskControl()
