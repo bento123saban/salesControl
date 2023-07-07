@@ -269,11 +269,15 @@ class asControl {
 class taskControl {
    constructor() { this.allData   = JSON.parse(localStorage.getItem('TASK'))}
    create(arrayOfData, IDX, dataSearch, types = 'Bendhard16'){
-      if (arrayOfData.length == 0) return true
-      let data = { ID : IDX, type : types, data : arrayOfData, header : dataSearch}
+      let datax = { ID : IDX, type : types, data : arrayOfData, header : dataSearch}
       const i = this.allData.findIndex(({ID}) => ID == IDX)
-      if (i >= 0) this.allData[i] = data
-      else if (i < 0) this.allData.push(data)
+      //console.log('xxx', i, this.allData[i])
+      if (arrayOfData.length == 0) {
+         this.allData.splice(i,1)
+         return true
+      }
+      if (i >= 0) this.allData[i] = datax
+      else if (i < 0) this.allData.push(datax)
       else return undefined
       return true
    }
