@@ -1,10 +1,17 @@
                                                                                                                                                                                                                                                                                                                                                                                                                
+
+@font-face {
+   font-family: barlow;
+   src: url(/font/BarlowCondensed-Light.ttf);
+}
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&family=Lato:wght@300&display=swap');
+
 
 * {
    box-sizing: border-box;
    font-family: 'Lato', sans-serif;
    font-family: 'Barlow Condensed', sans-serif;
+   font-family: barlow;
 }
 
 body {
@@ -13,11 +20,11 @@ body {
     padding: 0;
 }
 
+
 .dis-none {
    display: none !important;
 }
 .box {
-   margin: 12px 10px !important;
    padding: 10px !important;
    border-radius: 5px !important;
    box-shadow: 0 0 10px rgba(0,0,0,.225);
@@ -193,13 +200,24 @@ input.check-form::after{
    font-weight: bold;
 }
 
-
+.main-content {
+   display: flex;
+   flex-direction: column;
+   height: 100vh;
+   width: 100%;
+   padding: 50px 10px 70px;
+   overflow-x: hidden;
+   overflow-y: scroll;
+}
+.main-content hr {
+   width: 100%;
+}
 
 nav {
    display: flex;
    justify-content: space-between;
    align-items: center;
-   position: sticky;
+   position: fixed;
    bottom: 0;
    left: 0;
    width: 100%;
@@ -305,15 +323,11 @@ nav .nav-link:nth-child(3) .nav-content i {
    font-size: 16px;
 }
 
-#dashboard {
-   height: calc(100vh - 90px);
-   overflow-x: hidden;
-   overflow-y: scroll;
-}
 
 .dashboard-head {
-   position: sticky;
+   position: fixed;
    top: 0;
+   width: 100%;
    display: flex;
    align-items: center;
    justify-content: space-between;
@@ -333,6 +347,8 @@ nav .nav-link:nth-child(3) .nav-content i {
    text-align: right;
    font-size: 12px;
 }
+
+
 
 
 .calendar-control {
@@ -591,9 +607,8 @@ nav .nav-link:nth-child(3) .nav-content i {
 #task-dashboard {
    display: flex;
    justify-content: space-between;
+   margin: 10px 0 0;
    align-items: center;
-   padding: 10px;
-   margin: 0 10px;
    border-radius: 4px;
    font-size: 1rem;
    font-weight: bolder;
@@ -602,11 +617,12 @@ nav .nav-link:nth-child(3) .nav-content i {
 }
 
 .more-app {
+   padding: 0;
    display: flex;
    justify-content: center;
    align-items: center;
-   margin: 10px;
-   gap: 3px;
+   margin: 10px 0 10px;
+   gap: 10px;
 }
 .more-shortcut {
    background: darkcyan;
@@ -705,18 +721,7 @@ nav .nav-link:nth-child(3) .nav-content i {
 
 
 
-#add-fu {
-   padding: 10px;
-}
-#add-fu h4 {
-   width: 100%;
-   background: darkcyan;
-   color: white;
-   margin: 0;
-   padding: 5px 10px;
-   text-align: center;
-}
-
+/* ADD FU*/
 
 .fu-add-form {
    position: relative;
@@ -725,12 +730,6 @@ nav .nav-link:nth-child(3) .nav-content i {
    justify-content: flex-start;
    align-items: flex-start;
    flex-wrap: nowrap;
-   padding: 0;
-   margin: 0;
-   overflow-y: scroll;
-   overflow-x: hidden;
-   height: calc(100vh - 160px);
-   background: transparent;
 }
 .add-grup {
    width: 100%;
@@ -897,11 +896,7 @@ nav .nav-link:nth-child(3) .nav-content i {
 
 
 
-
-#fu-list {
-   background: transparent;
-   padding: 10px;
-}
+/* FU LIST*/
 .list-control-date {
    display: flex;
    align-items: center;
@@ -931,9 +926,6 @@ nav .nav-link:nth-child(3) .nav-content i {
    padding: 0;
    margin: 0;
    width: 100%;
-   background: transparent;
-   height: calc(100vh - 250px);
-   overflow: scroll;
    background: transparent;
 }
 #fu-list-data {
@@ -1008,14 +1000,10 @@ nav .nav-link:nth-child(3) .nav-content i {
    align-items: center;
 }
 
-#add-as {
-   padding: 10px;
-}
-.as-add-form {
-   height: calc(100vh - 240px);
-   overflow-x: hidden;
-   overflow-y: scroll;
-}
+
+
+
+/* ADD AS*/
 .reciept-num {
    display: flex;
    justify-content: center;
@@ -1071,16 +1059,9 @@ nav .nav-link:nth-child(3) .nav-content i {
 
 
 
-#as-list {
-   padding: 10px;
-   overflow: hidden;
-}
+/* AS LIST*/
 
 #as-list-data {
-   background: transparent;
-   overflow-x: hidden;
-   overflow-y: scroll;
-   height: calc(100vh - 250px);
    display: flex;
    flex-direction: column;
    gap: 10px;
@@ -1158,17 +1139,9 @@ nav .nav-link:nth-child(3) .nav-content i {
    background: linear-gradient(45deg, lightgray, white);
 }
 
-#setting {
-   padding: 10px;
-}
-.setting-box {
-   padding: 0;
-   margin: 0;
-   overflow-y: scroll;
-   overflow-x: hidden;
-   height: calc(100vh - 165px);
-   background: transparent;
-}
+
+/* SETTING */
+
 .setting-box h5 {
    padding: 4px 10px;
    margin: 0 0 10px;
@@ -1260,13 +1233,9 @@ nav .nav-link:nth-child(3) .nav-content i {
    margin: 0 auto;
 }
 
-#task-list {
-   padding: 10px;
-   margin: 0;
-   height: calc(100vh - 100px);
-   overflow-y: scroll;
-   overflow-x: hidden;
-}
+
+
+/* TASK LIST*/
 
 .task-list-grup {
    position: relative;
@@ -1276,13 +1245,6 @@ nav .nav-link:nth-child(3) .nav-content i {
    margin: 20px 0;
    border-radius: 4px;
    font-size: 13px;
-}
-
-.task-list-grup.as-task {
-   border-color: ;
-}
-.task-list-grup.as-task {
-   border-color: ;
 }
 .task-list-grup span {
    position: absolute;
@@ -1329,17 +1291,15 @@ nav .nav-link:nth-child(3) .nav-content i {
    width: 100%;
 }
 
-#add-task {
-   height: calc(100vh - 100px);
-   padding: 10px 10px 15px;
-}
+
+
+/* ADD TASK*/
 #add-task-form {
    margin: 25px 0 0;
    border-top: 2px solid lightgray;
    min-height: 50px;
    position: relative;
    padding: 20px 0 10px;
-   height: calc(100vh - 270px);
 }
 #add-task-form label {
    position: absolute;
@@ -1400,13 +1360,8 @@ nav .nav-link:nth-child(3) .nav-content i {
    outline: none;
 }
 
-#add-contact {
-   padding: 10px;
-}
-.contact-add-form {
-   height: calc(100vh - 184px);
-   overflow: scroll;
-}
+
+/* ADD CONTACT*/
 
 #contact-name label {
    font-weight: bolder;
