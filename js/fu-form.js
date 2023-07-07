@@ -35,14 +35,16 @@ window.addEventListener('DOMContentLoaded', function (e) {
          ID          = fuProgress.ID
       // return console.log(control)
       if (fuProgress.status == 'add' && confirm('Add new ?')) {
-         const saveFU   = await FU.create(Datax, IDX)
-         const saveTask = await TASK.create(Taskx, IDX, IDX + ' - ' + Datax.name + ' - FU', 'fu')
+         const saveFU   = FU.create(Datax, IDX)
+         const saveTask = TASK.create(Taskx, IDX, IDX + ' - ' + Datax.name + ' - FU', 'fu')
          if (!saveTask || !saveFU) return alert('Failed to save')
          localStorage.setItem('FU', JSON.stringify(FU.allData))
          localStorage.setItem('TASK', JSON.stringify(TASK.allData))
       } else if (fuProgress.status == 'edit' && confirm('Update ?')) {
-         const fuEdit   = await FU.create(Datax, ID)
-         const saveTask = await TASK.create(Taskx,ID, ID + ' - ' + Datax.name + ' - FU', 'fu')
+         console.log('Taskx', Taskx)
+         const fuEdit   = FU.create(Datax, ID)
+         const saveTask = TASK.create(Taskx,ID, ID + ' - ' + Datax.name + ' - FU', 'fu')
+         // console.log(saveTask)
          if (!fuEdit || !saveTask) return alert('Failed to save')
          localStorage.setItem('FU', JSON.stringify(FU.allData))
          localStorage.setItem('TASK', JSON.stringify(TASK.allData))
@@ -193,6 +195,7 @@ function fuTaskCollect () {
          status   : grup.querySelector('.task-check').checked
       })
    })
+   console.log('task', task)
    return task
 }
 
